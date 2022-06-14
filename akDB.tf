@@ -6,7 +6,7 @@ resource "oci_database_autonomous_database" "ak_autonomous_database" {
   count = var.ak_db_count
   #Required
   compartment_id           = var.compartment_ocid
-  cpu_core_count           = "0.1"
+  cpu_core_count           = "1"
   data_storage_size_in_tbs = "1"
   db_name                  = "akADB${count.index}"
   display_name             = "akADB${count.index}"
