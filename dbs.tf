@@ -10,10 +10,6 @@ resource "oci_database_autonomous_container_database" "test_autonomous_container
   backup_config {
     recovery_window_in_days = 7
     backup_destination_details {
-      /* Use Exadata local backup as a work around with NFS permision issues and minimize external dependency
-      id   = data.oci_database_backup_destinations.test_backup_destinations.backup_destinations[0].id
-      type = data.oci_database_backup_destinations.test_backup_destinations.backup_destinations[0].type
-      */
       type = "LOCAL"
     }
   }

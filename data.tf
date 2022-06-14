@@ -12,19 +12,6 @@ data "oci_identity_compartment" "exa_compartment" {
 data "oci_identity_compartment" "cluster_compartment" {
     id = data.oci_identity_compartment.fleet_compartment.compartment_id
 }
-#Get autonomous VM cluster from  grant parent Compartment
-data "oci_database_autonomous_vm_clusters" "test_autonomous_vm_clusters" {
-    compartment_id = data.oci_identity_compartment.fleet_compartment.compartment_id
-}
-/* Use Exadata local backup as a work around with NFS permision issues and minimize external dependency
-#Get autonomous backup destination from  grant parent Compartment
-data "oci_database_backup_destinations" "test_backup_destinations" {
-    compartment_id = data.oci_identity_compartment.fleet_compartment.compartment_id
-}
-output backup_destination {
-    value = data.oci_database_backup_destinations.test_backup_destinations.backup_destinations[*].display_name
-}
-*/
 #Parent Compartment for Fleet/Container DB
 data "oci_identity_compartment" "fleet_compartment" {
     id = data.oci_identity_compartment.adb_compartment.compartment_id
