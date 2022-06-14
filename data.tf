@@ -12,6 +12,10 @@ data "oci_identity_compartment" "exa_compartment" {
 data "oci_identity_compartment" "cluster_compartment" {
     id = data.oci_identity_compartment.fleet_compartment.compartment_id
 }
+#Get autonomous VM cluster from  grant parent Compartment
+data "oci_database_autonomous_vm_clusters" "test_autonomous_vm_clusters" {
+    compartment_id = data.oci_identity_compartment.fleet_compartment.compartment_id
+}
 #Parent Compartment for Fleet/Container DB
 data "oci_identity_compartment" "fleet_compartment" {
     id = data.oci_identity_compartment.adb_compartment.compartment_id
