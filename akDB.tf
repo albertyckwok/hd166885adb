@@ -1,6 +1,6 @@
 variable "ak_db_count" {
   description = "Number of database created by ak"
-  default=1
+  default=0
 }
 resource "oci_database_autonomous_database" "ak_autonomous_database" {
   count = var.ak_db_count
